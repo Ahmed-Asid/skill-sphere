@@ -1,15 +1,33 @@
 'use client'
 
-import { Lock, Mail } from 'lucide-react';
+import { Eye, EyeClosed, Lock, Mail } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import { FaChrome } from 'react-icons/fa6';
+import { authClient } from '@/lib/auth-client';
+import { FaChrome, FaEye } from 'react-icons/fa6';
+import { toast } from 'react-toastify';
+import { useState } from "react";
 
 const LoginPage = () => {
+    const [showPass, setShowPass] = useState(false);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const handleSignIn = (data) => {
+    const handleSignIn = async (data) => {
 
+        const { data: res, error } = await authClient.signIn.email({
+            email: data.email,
+            password: data.password,
+            rememberMe: true,
+            callbackURL: "/",
+        })
+
+        if (error) {
+            toast.error(error.message);
+        }
+
+        if (res) {
+            toast.success('Sign in successful')
+        }
     }
     return (
         <div
@@ -34,7 +52,7 @@ const LoginPage = () => {
 
                 <button className="flex items-center justify-center gap-3 w-full py-3.5 border-2 border-slate-100 rounded-2xl hover:bg-slate-50 transition-all font-semibold text-slate-700 group">
                     <FaChrome size={20} className="text-[#2563eb] group-hover:scale-110 transition-transform" />
-                    Sign up with Google
+                    Sign in with Google
                 </button>
 
                 <div className="relative my-8 text-center">
@@ -67,23 +85,28 @@ const LoginPage = () => {
                         <div className="relative">
                             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
-                                type="password"
+                                type={showPass ? "text" : "password"}
                                 {...register("password", { required: "Password is required" })}
                                 placeholder="••••••••"
                                 className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#2563eb] focus:border-transparent outline-none transition-all"
                             />
+                            <span onClick={() => setShowPass(!showPass)} className='absolute right-4 top-3.5'>
+                                {
+                                    showPass ? <Eye /> : <EyeClosed />
+                                }
+                            </span>
                         </div>
                         {
                             errors.password && <p className="text-red-500" >{errors.password.message}</p>
                         }
                     </div>
 
-                    <div className="flex items-center justify-between text-sm">
+                    {/* <div className="flex items-center justify-between text-sm">
                         <label className="flex items-center gap-2 cursor-pointer text-slate-600">
                             <input type="checkbox" className="rounded border-slate-300 text-[#2563eb]" />
                             Remember me
                         </label>
-                    </div>
+                    </div> */}
 
                     <button className="w-full py-4 bg-[#2563eb] text-white rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all transform hover:-translate-y-0.5">
                         Sign In

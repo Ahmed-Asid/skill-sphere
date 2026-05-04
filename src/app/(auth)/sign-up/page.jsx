@@ -1,17 +1,36 @@
+'use client'
 
-import { User, Mail, Lock } from 'lucide-react';
+import { User, Mail, Lock, Eye, EyeClosed } from 'lucide-react';
 import Link from 'next/link';
 import { FaChrome } from 'react-icons/fa6';
 import { FaImage } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
+import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 
 const RegisterPage = () => {
-
+    const [showPass, setShowPass] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const handleSignUp = (data) => {
+    const handleSignUp = async (data) => {
         const { name, email, image, password } = data;
+        const { data: res, error } = await authClient.signUp.email({
+            name: name,
+            email: email,
+            password: password,
+            image: image,
+            callbackURL: "/sign-in",
+        })
+
+        if (error) {
+            toast.error(error.message);
+        }
+
+        if (res) {
+            toast.success('Sign up successful')
+        }
     }
 
     return (
@@ -103,11 +122,16 @@ const RegisterPage = () => {
                         <div className="relative">
                             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
-                                type="password"
+                                type={showPass ? "text" : "password"}
                                 {...register("password", { required: "Please enter your password" })}
                                 placeholder="••••••••"
                                 className="w-full pl-12 pr-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#2563eb] focus:border-transparent outline-none transition-all"
                             />
+                            <span onClick={() => setShowPass(!showPass)} className='absolute right-4 top-3.5'>
+                                {
+                                    showPass ? <Eye /> : <EyeClosed />
+                                }
+                            </span>
                         </div>
                         {
                             errors.password && <p className="text-red-500" >{errors.password.message}</p>
