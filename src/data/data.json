@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch.",
+    "image": "/assets/web-dev.png",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "Advanced JavaScript Mastery",
+    "instructor": "will Smith",
+    "duration": "15 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Deep dive into modern JavaScript concepts and patterns.",
+    "image": "/assets/advance-js.png",
+    "category": "Development"
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Design Fundamentals",
+    "instructor": "Michael Lee",
+    "duration": "12 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Learn the basics of user interface and user experience design.",
+    "image": "/assets/ui-ux.png",
+    "category": "Design"
+  },
+  {
+    "id": 4,
+    "title": "Graphic Design with Photoshop",
+    "instructor": "Emily Davis",
+    "duration": "10 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Create stunning graphics using Adobe Photoshop.",
+    "image": "/assets/graphic-design.png",
+    "category": "Design"
+  },
+  {
+    "id": 5,
+    "title": "Digital Marketing Essentials",
+    "instructor": "David Wilson",
+    "duration": "14 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Master SEO, social media, and online marketing strategies.",
+    "image": "/assets/digital-marketing.png",
+    "category": "Marketing"
+  },
+  {
+    "id": 6,
+    "title": "SEO Optimization Masterclass",
+    "instructor": "Olivia Brown",
+    "duration": "8 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Improve website visibility with advanced SEO techniques.",
+    "image": "/assets/seo.png",
+    "category": "Marketing"
+  },
+  {
+    "id": 7,
+    "title": "Data Analysis with Excel",
+    "instructor": "James Anderson",
+    "duration": "9 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Analyze and visualize data using Microsoft Excel.",
+    "image": "/assets/data-analysis.png",
+    "category": "Data"
+  },
+  {
+    "id": 8,
+    "title": "Python for Data Science",
+    "instructor": "Sophia Martinez",
+    "duration": "18 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Learn Python libraries for data analysis and visualization.",
+    "image": "/assets/python-data-science.png",
+    "category": "Data"
+  },
+  {
+    "id": 9,
+    "title": "Mobile App Development with React Native",
+    "instructor": "Daniel Taylor",
+    "duration": "16 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Build cross-platform mobile apps using React Native.",
+    "image": "/assets/mobile-app.png",
+    "category": "Development"
+  },
+  {
+    "id": 10,
+    "title": "Video Editing with Premiere Pro",
+    "instructor": "Laura Thomas",
+    "duration": "11 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Edit professional-quality videos using Adobe Premiere Pro.",
+    "image": "/assets/video-editing.png",
+    "category": "Media"
+  },
+  {
+    "id": 11,
+    "title": "Cybersecurity Basics",
+    "instructor": "Robert White",
+    "duration": "13 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Understand fundamental cybersecurity concepts and practices.",
+    "image": "/assets/cyber-security.png",
+    "category": "Security"
+  },
+  {
+    "id": 12,
+    "title": "Cloud Computing with AWS",
+    "instructor": "Jessica Harris",
+    "duration": "17 hours",
+    "rating": 4.8,
+    "level": "Advanced",
+    "description": "Learn cloud architecture and services using AWS.",
+    "image": "/assets/cloud-computing.png",
+    "category": "Cloud"
+  }
+]

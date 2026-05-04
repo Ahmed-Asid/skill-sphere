@@ -1,0 +1,17 @@
+import Banner from "../components/homepage/Banner";
+import LearningTips from "../components/homepage/LearningTips";
+import PopularCourses from "../components/homepage/PopularCourses";
+import TopInstructors from "../components/homepage/TopInstructors";
+import Footer from "../components/shared/Footer";
+
+export default function Home() {
+  return (
+    <div>
+      <Banner></Banner>
+      <PopularCourses />
+      <LearningTips />
+      <TopInstructors />
+      <Footer />
+    </div>
+  );
+}
