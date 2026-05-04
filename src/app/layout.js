@@ -1,5 +1,6 @@
 import { Anta, Geist, Geist_Mono, Iceland, Kodchasan, Limelight } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
     >
       <body className={`min-h-full flex flex-col ${anta.className} bg-[#f8fafc]`}>
         <main>
+          <ToastContainer />
           {children}
         </main>
       </body>
