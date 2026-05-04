@@ -3,9 +3,17 @@ import { User, Mail, Lock } from 'lucide-react';
 import Link from 'next/link';
 import { FaChrome } from 'react-icons/fa6';
 import { FaImage } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
 
 
 const RegisterPage = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const handleSignUp = (data) => {
+        const { name, email, image, password } = data;
+    }
+
     return (
         <div
             className="min-h-screen flex items-center justify-center p-6"
@@ -40,7 +48,7 @@ const RegisterPage = () => {
                     </div>
                 </div>
 
-                <form className="space-y-5">
+                <form className="space-y-5" onSubmit={handleSubmit(handleSignUp)}>
 
                     <div>
                         <label className="block text-sm font-bold text-slate-700 mb-2 font-anta uppercase tracking-wider">Full Name</label>
@@ -48,11 +56,14 @@ const RegisterPage = () => {
                             <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
                                 type="text"
+                                {...register("name", { required: "Please enter your name" })}
                                 placeholder="John Doe"
                                 className="w-full pl-12 pr-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#2563eb] focus:border-transparent outline-none transition-all"
-                                required
                             />
                         </div>
+                        {
+                            errors.name && <p className="text-red-500" >{errors.name.message}</p>
+                        }
                     </div>
 
                     <div>
@@ -61,23 +72,30 @@ const RegisterPage = () => {
                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
                                 type="email"
+                                {...register("email", { required: "Please enter your email" })}
                                 placeholder="name@email.com"
                                 className="w-full pl-12 pr-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#2563eb] focus:border-transparent outline-none transition-all"
-                                required
                             />
                         </div>
+                        {
+                            errors.email && <p className="text-red-500" >{errors.email.message}</p>
+                        }
                     </div>
 
                     <div>
-                        <label className="block text-sm font-bold text-slate-700 mb-2 font-anta uppercase tracking-wider">Photo URL</label>
+                        <label className="block text-sm font-bold text-slate-700 mb-2 font-anta uppercase tracking-wider">Image URL</label>
                         <div className="relative">
                             <FaImage className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
                                 type="url"
+                                {...register("image", { required: "Please enter your image url" })}
                                 placeholder="https://example.com/photo.jpg"
                                 className="w-full pl-12 pr-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#2563eb] focus:border-transparent outline-none transition-all"
                             />
                         </div>
+                        {
+                            errors.image && <p className="text-red-500" >{errors.image.message}</p>
+                        }
                     </div>
 
                     <div>
@@ -86,11 +104,14 @@ const RegisterPage = () => {
                             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
                                 type="password"
+                                {...register("password", { required: "Please enter your password" })}
                                 placeholder="••••••••"
                                 className="w-full pl-12 pr-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#2563eb] focus:border-transparent outline-none transition-all"
-                                required
                             />
                         </div>
+                        {
+                            errors.password && <p className="text-red-500" >{errors.password.message}</p>
+                        }
                     </div>
 
                     <button className="w-full py-4 mt-4 bg-[#2563eb] text-white rounded-2xl font-bold shadow-xl shadow-blue-100 hover:bg-blue-700 transition-all transform hover:-translate-y-1 active:scale-95">

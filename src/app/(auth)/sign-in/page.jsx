@@ -1,8 +1,16 @@
+'use client'
 
 import { Lock, Mail } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 import { FaChrome } from 'react-icons/fa6';
 
 const LoginPage = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const handleSignIn = (data) => {
+
+    }
     return (
         <div
             className="min-h-screen flex items-center justify-center p-6"
@@ -37,17 +45,21 @@ const LoginPage = () => {
                 </div>
 
 
-                <form className="space-y-6" >
+                <form className="space-y-6" onSubmit={handleSubmit(handleSignIn)}>
                     <div>
                         <label className="block font-bold text-sm text-slate-700 mb-2 font-anta uppercase tracking-wider">Email Address</label>
                         <div className="relative">
                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
                                 type="email"
+                                {...register("email", { required: "Email is required" })}
                                 placeholder="you@example.com"
                                 className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#2563eb] focus:border-transparent outline-none transition-all"
                             />
                         </div>
+                        {
+                            errors.email && <p className="text-red-500" >{errors.email.message}</p>
+                        }
                     </div>
 
                     <div>
@@ -56,10 +68,14 @@ const LoginPage = () => {
                             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
                                 type="password"
+                                {...register("password", { required: "Password is required" })}
                                 placeholder="••••••••"
                                 className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#2563eb] focus:border-transparent outline-none transition-all"
                             />
                         </div>
+                        {
+                            errors.password && <p className="text-red-500" >{errors.password.message}</p>
+                        }
                     </div>
 
                     <div className="flex items-center justify-between text-sm">
