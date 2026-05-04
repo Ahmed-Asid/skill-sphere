@@ -2,8 +2,9 @@
 
 import { Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-const PopularCourseUi = ({ course }) => {
+const CourseUi = ({ course }) => {
     console.log(course)
     return (
         <div
@@ -26,15 +27,16 @@ const PopularCourseUi = ({ course }) => {
                 <p className="text-sm font-medium text-yellow-500 flex gap-2 items-center">
                     <Star size={16} /> {course.rating}
                 </p>
-
-                <button
-                    className="mt-3 bg-indigo-700 text-white py-2 px-4 rounded-lg font-medium transition duration-300 hover:bg-[#2563eb] hover:shadow-md active:scale-95"
-                >
-                    View Details
-                </button>
+                <Link href={'/sign-in'}>
+                    <button
+                        className="w-full mt-3 bg-indigo-700 text-white py-2 px-4 rounded-lg font-medium transition duration-300 hover:bg-[#2563eb] hover:shadow-md active:scale-95"
+                    >
+                        View Details
+                    </button>
+                </Link>
             </div>
         </div>
     );
 };
 
-export default PopularCourseUi;
+export default CourseUi;

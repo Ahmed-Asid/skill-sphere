@@ -1,5 +1,5 @@
 import courses from '@/data/data.json'
-import PopularCourseUi from './PopularCourseUi';
+import CourseUi from './CourseUi';
 
 const PopularCourses = () => {
 
@@ -10,7 +10,7 @@ const PopularCourses = () => {
             <h2 className='text-2xl font-semibold text-center text-[#2563eb]'>Our Most Popular Courses</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 {
-                    popularCourses.map(c => <PopularCourseUi course={c} key={c.id}></PopularCourseUi>)
+                    popularCourses.map(c => <CourseUi course={c} key={c.id}></CourseUi>)
                 }
             </div>
         </div>
