@@ -1,11 +1,11 @@
 import CourseUi from '@/app/components/homepage/CourseUi';
-import { FetchCourseData } from '@/lib/data';
+import { fetchCourseData } from '@/lib/data';
 import { Suspense } from 'react';
 
 
-const AllCoursesPage = () => {
+const AllCoursesPage = async () => {
 
-    const courses = FetchCourseData();
+    const courses = await fetchCourseData();
     return (
         <div className='w-[80%] mx-auto space-y-8 my-8'>
             <h2 className='text-2xl font-semibold text-center text-[#2563eb]'>Our Courses</h2>

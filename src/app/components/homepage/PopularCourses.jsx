@@ -1,11 +1,11 @@
 
-import { FetchCourseData } from '@/lib/data';
+import { fetchCourseData } from '@/lib/data';
 import CourseUi from './CourseUi';
 import { Suspense } from 'react';
 
-const PopularCourses = () => {
+const PopularCourses = async () => {
 
-    const courses = FetchCourseData();
+    const courses = await fetchCourseData();
 
     const popularCourses = courses.sort((a, b) => b.rating - a.rating).slice(0, 3);
     console.log(popularCourses)

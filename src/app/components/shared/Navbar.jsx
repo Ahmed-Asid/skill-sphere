@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import NavbarPath from "./NavbarPath";
-import Image from "next/image";
 import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
