@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CourseUi = ({ course }) => {
-    console.log(course)
+
     return (
         <div
             className="p-2 rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-md "
