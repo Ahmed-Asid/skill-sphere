@@ -23,7 +23,8 @@ const Navbar = () => {
                             <NavbarPath />
                         </ul>
                     </div>
-                    <Link href={'/'} className="text-2xl font-bold"><div className={`text-[#0f172a] `}>SkillSphere</div></Link>
+                    {/* <span className="text-[#10b981]">S</span> */}
+                    <Link href={'/'} className="text-2xl font-bold"><div className=' bg-clip-text bg-linear-to-br from-[#10b981] to-[#2563eb]'><div className="text-transparent">SkillSphere</div></div></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex gap-10 font-semibold">

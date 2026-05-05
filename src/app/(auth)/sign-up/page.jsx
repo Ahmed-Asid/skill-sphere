@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import { authClient } from '@/lib/auth-client';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
+import { redirect } from 'next/navigation';
 
 
 const RegisterPage = () => {
@@ -29,9 +30,16 @@ const RegisterPage = () => {
         }
 
         if (res) {
-            toast.success('Sign up successful')
+            toast.success('Sign up successful');
+            redirect('/sign-in')
         }
     }
+
+    const googleSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    };
 
     return (
         <div
@@ -54,9 +62,9 @@ const RegisterPage = () => {
                 </div>
 
                 <div className="mb-8">
-                    <button className="flex items-center justify-center gap-3 w-full py-3.5 border-2 border-slate-100 rounded-2xl hover:bg-slate-50 transition-all font-semibold text-slate-700 group">
+                    <button onClick={googleSignIn} className="flex items-center justify-center gap-3 w-full py-3.5 border-2 border-slate-100 rounded-2xl hover:bg-slate-50 transition-all font-semibold text-slate-700 group">
                         <FaChrome size={20} className="text-[#2563eb] group-hover:scale-110 transition-transform" />
-                        Sign up with Google
+                        Sign in with Google
                     </button>
 
                     <div className="relative my-8 text-center">
