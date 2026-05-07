@@ -118,6 +118,7 @@
     "level": "Beginner",
     "description": "Understand fundamental cybersecurity concepts and practices.",
     "image": "/assets/cyber-security.png",
+    "new": true,
     "category": "Security"
   },
   {
@@ -129,6 +130,7 @@
     "level": "Advanced",
     "description": "Learn cloud architecture and services using AWS.",
     "image": "/assets/cloud-computing.png",
+    "new": true,
     "category": "Cloud"
   }
 ]

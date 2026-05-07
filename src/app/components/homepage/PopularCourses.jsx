@@ -1,7 +1,6 @@
 
 import { fetchCourseData } from '@/lib/data';
-import CourseUi from './CourseUi';
-import { Suspense } from 'react';
+import Slider from './Slider';
 
 const PopularCourses = async () => {
 
@@ -12,14 +11,7 @@ const PopularCourses = async () => {
     return (
         <div className='w-[80%] mx-auto space-y-8 my-8'>
             <h2 className='text-2xl font-semibold text-center text-[#2563eb]'>Our Most Popular Courses</h2>
-            <Suspense fallback={<div className='flex justify-center items-center w-full h-[60vh]'><span className="loading loading-dots loading-xl"></span></div>}>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-                    {
-                        popularCourses.map(c => <CourseUi course={c} key={c.id}></CourseUi>)
-                    }
-                </div>
-            </Suspense>
+            <Slider courses={popularCourses} />
         </div>
     );
 };

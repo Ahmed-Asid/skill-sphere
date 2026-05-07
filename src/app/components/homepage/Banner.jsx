@@ -8,8 +8,8 @@ const Banner = () => {
 
                 <div className="grid lg:grid-cols-2 gap-10 items-center justify-center w-full max-w-7xl mx-auto">
 
-                    <div className="text-center lg:text-start">
-                        <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-[#2563eb]">
+                    <div className="text-center lg:text-start animate__animated animate__lightSpeedInRight">
+                        <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-[#2563eb] ">
                             Build Fast. Learn Faster.
                         </h1>
 

@@ -7,7 +7,7 @@ import { authClient } from '@/lib/auth-client';
 
 const MyProfile = () => {
 
-    const { data: session, isPending } = authClient.useSession();
+    const { data: session } = authClient.useSession();
     const user = session?.user || {
         name: "Guest",
         email: "",
@@ -15,7 +15,7 @@ const MyProfile = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto my-16 p-6 bg-base-100 shadow-xl rounded-2xl border border-base-300">
+        <div className="max-w-2xl mx-auto my-16 p-6 bg-base-100 shadow-xl rounded-2xl border border-base-300 animate__animated animate__bounceIn">
             <h1 className="text-3xl font-anta font-bold mb-8 text-center text-primary">My Profile</h1>
 
             <div className="flex flex-col items-center gap-6">
