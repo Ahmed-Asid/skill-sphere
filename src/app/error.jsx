@@ -27,13 +27,6 @@ export default function Error({
                         Go Home
                     </Link>
                 </div>
-                {
-                    process.env.NODE_ENV === "development" && (
-                        <p className="mt-8 text-xs text-red-400 break-all">
-                            {error?.message}
-                        </p>
-                    )
-                }
             </div>
         </div>
     );
