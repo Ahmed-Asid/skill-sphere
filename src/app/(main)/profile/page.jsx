@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Edit } from 'lucide-react';
 import { authClient } from '@/lib/auth-client';
+import Image from 'next/image';
 
 const MyProfile = () => {
 
@@ -11,7 +12,7 @@ const MyProfile = () => {
     const user = session?.user || {
         name: "Guest",
         email: "",
-        image: "."
+        image: ""
     };
 
     return (
@@ -21,8 +22,8 @@ const MyProfile = () => {
             <div className="flex flex-col items-center gap-6">
 
                 <div className="avatar">
-                    <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src={user.image} alt={user.name} />
+                    <div className="w-32 h-32 relative rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <Image src={user.image} fill sizes={128} alt={user.name} />
                     </div>
                 </div>
 

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import NavbarPath from "./NavbarPath";
 import { authClient } from "@/lib/auth-client";
+import { Menu } from "lucide-react";
+import Image from "next/image";
 
 const Navbar = () => {
     const { data: session, isPending } = authClient.useSession();
@@ -14,7 +16,7 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                            <Menu />
                         </div>
                         <ul
                             tabIndex="-1"
@@ -23,7 +25,12 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <Link href={'/'} className="text-2xl font-bold animate__animated animate__rubberBand hover:scale-110 transition duration-300"><div className=' bg-clip-text bg-linear-to-br from-[#10b981] to-[#2563eb]'><div className="text-transparent flex items-center"><div><img src="/assets/fav-icon.png" className="w-10" /></div>SkillSphere</div></div></Link>
+                    <Link href={'/'} className="text-2xl font-bold animate__animated animate__rubberBand hover:scale-110 transition duration-300">
+                        <div className=' bg-clip-text bg-linear-to-br from-[#10b981] to-[#2563eb]'>
+                            <div className="text-transparent flex items-center">
+                                <div><Image priority={true} src="/assets/fav-icon.png" width={40} height={40} alt="fav" /></div>SkillSphere</div>
+                        </div>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex gap-10 font-semibold">
@@ -34,8 +41,8 @@ const Navbar = () => {
                     user ?
                         <div className="navbar-end gap-2">
                             <div className="avatar">
-                                <div className="w-10 h-10 rounded-full">
-                                    <img src={user.image} alt="user"></img>
+                                <div className="w-10 h-10 rounded-full relative">
+                                    <Image priority={true} src={user.image} alt="user" fill />
                                 </div>
                             </div>
                             <Link href={'/'}><div onClick={async () => await authClient.signOut()} className="font-semibold hover:text-red-500 active:scale-95">Log out</div></Link>

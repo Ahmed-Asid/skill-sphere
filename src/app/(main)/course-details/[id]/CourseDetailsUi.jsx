@@ -2,6 +2,7 @@
 import React from 'react';
 import { Clock, Star, BarChart, User, Tag, ArrowRight } from 'lucide-react';
 import { fetchCourseData } from '@/lib/data';
+import Image from 'next/image';
 
 const CourseDetailsUi = async ({ id }) => {
 
@@ -13,11 +14,12 @@ const CourseDetailsUi = async ({ id }) => {
         <div className="max-w-6xl mx-auto bg-base-100 shadow-2xl rounded-3xl overflow-hidden border border-base-300">
             <div className="flex flex-col lg:flex-row">
 
-                <div className="lg:w-1/2 relative group">
-                    <img
+                <div className="lg:w-1/2 relative group h-100 md:h-125">
+                    <Image
                         src={course.image}
                         alt={course.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        className="transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4 flex gap-2">
                         <div className="badge badge-primary font-anta p-4">{course.category}</div>

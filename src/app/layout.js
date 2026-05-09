@@ -1,26 +1,9 @@
 import dns from "node:dns";
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
-import { Anta, Geist, Geist_Mono, Iceland, Kodchasan, Limelight } from "next/font/google";
+import { Anta } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const limelight = Limelight({
-  weight: '400', 
-  subsets: ['latin'],
-  variable: '--font-limelight',
-  display: 'swap',
-});
 
 export const anta = Anta({
   weight: '400',
@@ -28,19 +11,6 @@ export const anta = Anta({
   variable: '--font-anta',
   display: 'swap',
 });
-
-export const iceland = Iceland({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-iceland',
-  display: 'swap',
-});
-
-export const kodchasan = Kodchasan({
-  variable: '--font-kodchasan',
-  weight: ['200', '300', '400', '500', '600', '700'],
-  subsets: ['latin']
-})
 
 export const metadata = {
   title: 'SkillSphere - Get Skilled',
@@ -55,7 +25,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-theme='light'
-      className={`${geistSans.variable} ${geistMono.variable} ${kodchasan.variable} ${limelight.variable} h-full antialiased`}
+      className={`h-full antialiased`}
     >
       <body className={`min-h-full flex flex-col ${anta.className} bg-[#f8fafc]`}>
         <main>
