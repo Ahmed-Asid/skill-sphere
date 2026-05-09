@@ -52,10 +52,10 @@ const LearningTips = () => {
                             <div className={`${tip.color} w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-[#020617]`}>
                                 {tip.icon}
                             </div>
-                            <h3 className="text-xl font-semibold text-[#020617] mb-3">
+                            <h3 className="text-xl font-semibold text-gray-50 mb-3">
                                 {tip.title}
                             </h3>
-                            <p className="text-[#020617] leading-relaxed">
+                            <p className="text-gray-100 leading-relaxed">
                                 {tip.description}
                             </p>
                         </div>

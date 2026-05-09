@@ -6,9 +6,8 @@ import { fetchCourseData } from '@/lib/data';
 const CourseDetailsUi = async ({ id }) => {
 
     const courses = await fetchCourseData();
-    console.log('hello', courses)
+
     const course = courses.find(c => c.id === Number(id));
-    console.log('hello', course, id)
 
     return (
         <div className="max-w-6xl mx-auto bg-base-100 shadow-2xl rounded-3xl overflow-hidden border border-base-300">

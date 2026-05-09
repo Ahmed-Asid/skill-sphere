@@ -3,6 +3,11 @@ import { BASE_URL } from '@/lib/data';
 import { Suspense } from 'react';
 import SearchCourses from './SearchCourses';
 
+export const metadata = {
+    title: 'SkillSphere - All Courses',
+    description: 'Discover all of our courses',
+};
+
 const fetchCourseData = async (search = '') => {
     const res = await fetch(`${BASE_URL}/data/data.json/?search=${search}`);
     const data = await res.json();

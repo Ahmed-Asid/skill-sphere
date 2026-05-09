@@ -4,7 +4,7 @@ const Banner = () => {
     return (
         <div >
 
-            <div className="py-10 lg:py-0 lg:h-[80vh] flex items-center px-6 lg:px-16">
+            <div className="py-10 lg:py-0 lg:h-[80vh] flex items-center px-6 lg:px-16 bg-blue-950">
 
                 <div className="grid lg:grid-cols-2 gap-10 items-center justify-center w-full max-w-7xl mx-auto">
 
@@ -13,7 +13,7 @@ const Banner = () => {
                             Build Fast. Learn Faster.
                         </h1>
 
-                        <p className="mt-6 text-lg max-w-xl">
+                        <p className="mt-6 text-lg max-w-xl text-gray-100">
                             Skip outdated learning. Gain real-world digital skills, build projects,
                             and move from idea to execution—without wasting time.
                         </p>

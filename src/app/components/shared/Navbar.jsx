@@ -22,8 +22,8 @@ const Navbar = () => {
                             <NavbarPath />
                         </ul>
                     </div>
-                    {/* <span className="text-[#10b981]">S</span> */}
-                    <Link href={'/'} className="text-2xl font-bold animate__animated animate__rubberBand hover:scale-110 transition duration-300"><div className=' bg-clip-text bg-linear-to-br from-[#10b981] to-[#2563eb]'><div className="text-transparent">SkillSphere</div></div></Link>
+
+                    <Link href={'/'} className="text-2xl font-bold animate__animated animate__rubberBand hover:scale-110 transition duration-300"><div className=' bg-clip-text bg-linear-to-br from-[#10b981] to-[#2563eb]'><div className="text-transparent flex items-center"><div><img src="/assets/fav-icon.png" className="w-10" /></div>SkillSphere</div></div></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex gap-10 font-semibold">

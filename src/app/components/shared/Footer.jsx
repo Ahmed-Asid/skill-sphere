@@ -1,14 +1,19 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-horizontal footer-center rounded bg-[#2563eb] p-10 text-gray-100">
+            <footer className="footer footer-horizontal footer-center rounded bg-slate-700 p-10 text-gray-100">
                 <nav className="grid grid-flow-col gap-4">
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Terms and Conditions</a>
-                    <a className="link link-hover">Privacy policy</a>
+                    <Link href={'#'}>About us</Link>
+                    <Link href={'#'}>Terms and Conditions</Link>
+                    <Link href={'#'}>Privacy policy</Link>
+                </nav>
+                <nav>
+                    <p>Contact</p>
+                    <Link href={'#'}>+88017999999999</Link>
+                    <Link href={'#'}>skill_sphere@gmail.com</Link>
                 </nav>
                 <nav>
                     <div className="grid grid-flow-col gap-4">

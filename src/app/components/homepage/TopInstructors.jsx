@@ -29,7 +29,7 @@ const TopInstructors = () => {
     ];
 
     return (
-        <section className="py-20">
+        <section className="py-20 bg-slate-200">
             <div className="w-[90%] mx-auto px-4 flex flex-col justify-center items-center md:items-start">
                 <div className="] mb-12 gap-4">
                     <div className="text-center md:text-start max-w-xl">
