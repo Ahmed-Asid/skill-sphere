@@ -1,8 +1,10 @@
-export const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+import data from "@/../public/data/data.json";
 
-export const fetchCourseData = async() => {
-    const res = await fetch(`${BASE_URL}/data/data.json`);
-    const data = await res.json();
+export const fetchCourseData = async () => {
+
+    await new Promise(resolve =>
+        setTimeout(resolve, 2000)
+    );
 
     return data;
-}
+};

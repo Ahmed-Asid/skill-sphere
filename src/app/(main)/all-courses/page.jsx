@@ -1,5 +1,5 @@
 import CourseUi from '@/app/components/homepage/CourseUi';
-import { BASE_URL } from '@/lib/data';
+import data from "@/../public/data/data.json";
 import { Suspense } from 'react';
 import SearchCourses from './SearchCourses';
 
@@ -8,11 +8,23 @@ export const metadata = {
     description: 'Discover all of our courses',
 };
 
-const fetchCourseData = async (search = '') => {
-    const res = await fetch(`${BASE_URL}/data/data.json/?search=${search}`);
-    const data = await res.json();
-    return data;
-}
+
+export const fetchCourseData = async (search = "") => {
+
+    await new Promise(resolve =>
+        setTimeout(resolve, 2000)
+    );
+
+    if (!search) {
+        return data;
+    }
+
+    return data.filter(course =>
+        course.title
+            .toLowerCase()
+            .includes(search.toLowerCase())
+    );
+};
 
 const AllCoursesPage = async ({ searchParams }) => {
 
