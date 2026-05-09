@@ -1,5 +1,7 @@
-import React from 'react';
+
 import SignIn from './SignIn';
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
     title: 'SkillSphere - Sign in',
@@ -13,5 +15,3 @@ const SignInPage = () => {
         </>
     );
 };
-
-export default SignInPage;
