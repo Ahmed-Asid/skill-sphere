@@ -14,3 +14,5 @@ const SignInPage = () => {
         </Suspense>
     );
 };
+
+export default SignInPage;
