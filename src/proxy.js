@@ -3,15 +3,18 @@ import { auth } from './lib/auth';
 import { headers } from 'next/headers';
 
 export async function proxy(request) {
+    const pathname = request.nextUrl.pathname;
+    const loginUrl = new URL("/sign-in", request.url);
 
     const session = await auth.api.getSession({
         headers: await headers()
     })
 
-    if (session){
-        return NextResponse.next();
+    if (!session){
+        loginUrl.searchParams.set("redirect", pathname);
+        return NextResponse.redirect(loginUrl);
     }
-    return NextResponse.redirect(new URL('/sign-in', request.url))
+    return NextResponse.next();
 }
  
 export const config = {

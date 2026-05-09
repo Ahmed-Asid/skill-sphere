@@ -3,12 +3,19 @@
 import { Eye, EyeClosed, Lock, Mail } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { authClient } from '@/lib/auth-client';
-import { FaChrome, FaEye } from 'react-icons/fa6';
+import { FaChrome } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 const LoginPage = () => {
     const [showPass, setShowPass] = useState(false);
+
+    const router = useRouter();
+    const searchParams = useSearchParams();
+
+    const redirect = searchParams.get("redirect") || "/";
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -18,7 +25,6 @@ const LoginPage = () => {
             email: data.email,
             password: data.password,
             rememberMe: true,
-            callbackURL: "/",
         })
 
         if (error) {
@@ -28,6 +34,8 @@ const LoginPage = () => {
         if (res) {
             toast.success('Sign in successful')
         }
+
+        router.push(redirect);
     }
 
     const googleSignIn = async () => {
@@ -107,13 +115,6 @@ const LoginPage = () => {
                             errors.password && <p className="text-red-500" >{errors.password.message}</p>
                         }
                     </div>
-
-                    {/* <div className="flex items-center justify-between text-sm">
-                        <label className="flex items-center gap-2 cursor-pointer text-slate-600">
-                            <input type="checkbox" className="rounded border-slate-300 text-[#2563eb]" />
-                            Remember me
-                        </label>
-                    </div> */}
 
                     <button className="w-full py-4 bg-[#2563eb] text-white rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all transform hover:-translate-y-0.5">
                         Sign In

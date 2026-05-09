@@ -5,7 +5,6 @@ import { fetchCourseData } from '@/lib/data';
 
 const CourseDetailsUi = async ({ id }) => {
 
-
     const courses = await fetchCourseData();
     console.log('hello', courses)
     const course = courses.find(c => c.id === Number(id));
